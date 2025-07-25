@@ -1,11 +1,12 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import en from './en.json';
-import mm from './mm.json';
 
-i18n.use(initReactI18next).init({
-  resources: { en: { translation: en }, mm: { translation: mm } },
-  lng: 'en', fallbackLng: 'en', interpolation: { escapeValue: false }
+const translations = {
+  en: { title: "Burma Heritage Portal" },
+  mm: { title: "မြန်မာအမွေအနှစ်ပေါ်တယ်" }
+};
+document.getElementById('languageSwitcher').addEventListener('change', (e) => {
+  const lang = e.target.value;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = translations[lang][key] || key;
+  });
 });
-
-export default i18n;

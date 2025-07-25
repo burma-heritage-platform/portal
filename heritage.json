@@ -1,0 +1,15 @@
+
+[
+  {
+    "name": "Bagan",
+    "description": "Ancient city with thousands of temples.",
+    "lat": 21.171727,
+    "lng": 94.858544
+  },
+  {
+    "name": "Shwedagon Pagoda",
+    "description": "Iconic golden stupa in Yangon.",
+    "lat": 16.7983,
+    "lng": 96.1497
+  }
+]
