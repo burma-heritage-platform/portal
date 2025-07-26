@@ -7,25 +7,25 @@
   <title>Burma Heritage Portal</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css" >
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-</head>
-<body>
-  <header>
-    <h1 data-i18n="title">Burma Heritage Portal | မြန်မာအမွေအနှစ်ပလက်ဖောင်း</h1>
-    <select id="languageSwitcher">
-      <option value="en">English</option>
-      <option value="mm">မြန်မာ</option>
-      <input type="text" id="searchBar" placeholder="Search heritage sites...">
-    </select>
+  </head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+  <header class="bg-white shadow p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Burma Heritage Portal</h1>
+      <button id="toggle-lang" class="text-sm border px-3 py-1 rounded">မြန်မာဘာသာ</button>
+    </div>
   </header>
-  <main id="heritage-container"></main>
-  <div id="map" style="height: 400px;"></div>
-  <script src="assets/i18n.js"></script>
-  <script src="assets/map.js"></script>
-  <div id="map"></div>
-  <main id="heritageList"></main>
-  <footer>
-    <p>Content licensed under CC BY-NC 4.0 | <a href="https://creativecommons.org/licenses/by-nc/4.0/">Learn more</a></p>
+  <main class="max-w-4xl mx-auto p-4">
+    <div class="flex mb-4">
+      <input type="text" id="search-input" placeholder="Search heritage sites..." class="flex-grow border p-2 rounded-l" />
+      <button class="bg-blue-500 text-white px-4 rounded-r">Search</button>
+    </div>
+    <div id="heritage-list" class="grid gap-4"></div>
+  </main>
+  <footer class="bg-white border-t p-4 text-center text-sm text-gray-600">
+    © 2025 Burma Heritage Platform. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" class="underline">CC BY-NC 4.0</a>
   </footer>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
