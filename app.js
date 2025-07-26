@@ -25,11 +25,6 @@ const heritageSites = [
 
 let currentLang = "en";
 
-const map = L.map('map').setView([21.9162, 95.9560], 6);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: 'Map data © OpenStreetMap contributors'
-}).addTo(map);
-
 function renderSites() {
   listContainer.innerHTML = "";
   const query = searchInput.value.toLowerCase();
@@ -62,27 +57,15 @@ toggleLangBtn.addEventListener("click", () => {
 // Initial render
 renderSites();
 
+const map = L.map("map").setView([20.5937, 96.8561], 6);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "&copy; OpenStreetMap contributors",
+}).addTo(map);
 
-
+// Add pins for sites (use real coordinates in real app)
 heritageSites.forEach(site => {
-  const marker = L.marker([site.lat, site.lng]).addTo(map);
-  marker.bindPopup(`<b>${site.name_en}</b><br>${site.description_en}`);
+  L.marker([20.9 + Math.random(), 96.1 + Math.random()])
+    .addTo(map)
+    .bindPopup(site[`name_${currentLang}`]);
 });
 
-function toggleLanguage() {
-  currentLanguage = currentLanguage === 'en' ? 'mm' : 'en';
-  renderHeritageList();
-}
-
-function renderHeritageList() {
-  const container = document.getElementById('heritageList');
-  container.innerHTML = '';
-  heritageSites.forEach(site => {
-    const name = currentLanguage === 'en' ? site.name_en : site.name_mm;
-    const desc = currentLanguage === 'en' ? site.description_en : site.description_mm;
-    const card = `<div class="card"><h2>${name}</h2><p>${desc}</p></div>`;
-    container.innerHTML += card;
-  });
-}
-
-renderHeritageList();
